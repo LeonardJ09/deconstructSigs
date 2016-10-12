@@ -144,7 +144,7 @@ mut.to.sigs.input = function(mut.ref, sample.id = 'Sample', chr = 'chr', pos = '
     tmp = subset(mut, mut[,sample.id] == i)
     beep = table(tmp$tricontext)
     if (length(beep) == 0){
-      continue
+      next
     } else{
       for(l in 1:length(beep)){
         trimer = names(beep[l])
