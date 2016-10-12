@@ -147,6 +147,8 @@ mut.to.sigs.input = function(mut.ref, sample.id = 'Sample', chr = 'chr', pos = '
       trimer = names(beep[l])
       if(trimer %in% all.tri){
         final.matrix[i, trimer] = beep[trimer]
+      } else{
+        continue  
       }
     }
   }
