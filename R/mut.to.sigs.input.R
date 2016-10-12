@@ -143,12 +143,14 @@ mut.to.sigs.input = function(mut.ref, sample.id = 'Sample', chr = 'chr', pos = '
   for(i in unique(mut[,sample.id])){
     tmp = subset(mut, mut[,sample.id] == i)
     beep = table(tmp$tricontext)
-    for(l in 1:length(beep)){
-      trimer = names(beep[l])
-      if(trimer %in% all.tri){
-        final.matrix[i, trimer] = beep[trimer]
-      } else{
-        continue  
+    if (length(beep) == 0){
+      continue
+    } else{
+      for(l in 1:length(beep)){
+        trimer = names(beep[l])
+        if(trimer %in% all.tri){
+          final.matrix[i, trimer] = beep[trimer]  
+        }
       }
     }
   }
